@@ -4,41 +4,51 @@ import './App.css';
 
 function App() {
 
-  const [name, setName] = useState("");
-  const [notes, setNotes] = useState([]);
+  
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+	const [search, setSearch] = useState("");
+	const [todo, setTodo] = useState([]);
+	const [name, setName] = useState("");
 
-    if(name.trim() !== ""){
-      setNotes([...notes,name]);
-      setName("");
-    }
-    
-  }
+
 
   return (
-    <div className="App">
+	<div className ="list">
+	  
+	  <form>
+	  <input />
+	  <button 
+	  onClick={
 
-      <form onSubmit={handleSubmit}>
- 	      <label>Write Note</label><br/>
-        
-        <input type="text" value={name} onChange={(e)=>setName(e.target.value)}></input>
-        
-        <br/>
-        <br/>
-        <input type='submit' value="Submit"></input>
-      </form>
-      <div className="list">
+	(event)=>{
+	event.preventDefault();
+	setTodo([...todo, event.target.previousElementSibling.value]);
+	  
+	}}>
+	  <b>Dodaj</b>
+	  </button>
+	  </form>
 
-        {notes.map((note, index) => (
-          <div key={index} className="note" onClick={()=>setNotes(notes.filter((_, i) => i !== index))}>
-            {note}
-          </div>
-        ))}
+	<label><b>Search</b>
+	  <input
+	onChange={
+	(event)=> setSearch(event.target.value)
+	}
+	  /></label>
+  	<div>
+	  {
+		todo
+		  .filter((item) => item.toLowerCase().includes(search.toLowerCase()))
+		  .map((item,index) =>( 
+		<li key={index}className="note">
+			  {item}({index})
+			  <button className ="remove" onClick={()=>setTodo([...todo.filter((_,i)=>i !== index)])} ><b>X</b></button>
+			  </li>
+		))}
+	  </div>
 
-      </div>
-    </div>
+	</div>
+
   );
 }
 
