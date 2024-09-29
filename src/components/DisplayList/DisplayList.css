@@ -1,0 +1,44 @@
+.list{
+    margin-top: 25px;
+    text-align: center;
+    
+}
+
+.item{
+    max-width: 55vw;
+    min-width: 55vw;
+    list-style-type: none;
+    outline: 3px solid black;
+    border-radius: 1em;
+    background-color: beige;
+    padding: 25px;
+    margin: 15px;
+    font-size: 36px;
+
+    display: flex;
+}
+
+.itemContent{
+    flex-grow: 7;
+}
+
+.removeButton{
+    min-width: 150px;
+    min-height: 150px;    
+    max-width: 150px;
+    max-height: 150px;
+    font-size: 24px;
+    flex-grow: 1;
+
+    background: palevioletred;
+    outline: 3px solid black;
+    border-radius: 1em;
+}
+
+.removeButton:hover{
+    background: rgb(206, 110, 142);
+
+}
+.removeIcon{
+    font-size: 84px;
+}

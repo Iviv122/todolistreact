@@ -1,0 +1,13 @@
+.formInput{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+.noteInput{
+border: 1px solid #ccc;  
+font-size: 24px;
+}
+.inputButton{
+font-size: 24px;
+margin-left: 5px;
+}
